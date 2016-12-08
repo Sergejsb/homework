@@ -1,8 +1,5 @@
 package Gravitrips;
 
-/**
- * Created by Serjoga on 06/12/2016.
- */
 
 import java.util.Scanner;
 

@@ -1,8 +1,5 @@
 package Gravitrips;
 
-/**
- * Created by Serjoga on 06/12/2016.
- */
 
 import java.util.Random;
 
@@ -10,11 +7,13 @@ public class ComputerPlayer implements Player {
     private Turn turn;
 
     public ComputerPlayer(Turn turn) {
+
         this.turn = turn;
     }
 
     @Override
     public Turn getTurn() {
+
         return this.turn;
     }
 
@@ -28,6 +27,7 @@ public class ComputerPlayer implements Player {
 
     @Override
     public String toString() {
+
         return turn.name();
     }
 }

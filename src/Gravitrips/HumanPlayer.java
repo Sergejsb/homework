@@ -1,18 +1,13 @@
 package Gravitrips;
 
-/**
- * Created by Serjoga on 06/12/2016.
- */
 
 public class HumanPlayer implements Player {
     private Turn turn;
 
-    public void setTurn(Turn turn) {
-        this.turn = turn;
-    }
 
     @Override
     public Turn getTurn() {
+
         return turn;
     }
 
@@ -38,6 +33,7 @@ public class HumanPlayer implements Player {
 
     @Override
     public String toString() {
+
         return turn.name();
     }
 }
