@@ -7,6 +7,7 @@ public enum Turn {
     public String symbol;
 
     Turn(String symbol) {
+
         this.symbol = symbol;
     }
 

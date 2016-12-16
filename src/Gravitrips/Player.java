@@ -5,6 +5,6 @@ public interface Player {
 
     Turn getTurn();
 
-    int makeMove();
+    int makeMove(GameField gameField);
 }
 

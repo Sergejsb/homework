@@ -12,17 +12,18 @@ public class HumanPlayer implements Player {
     }
 
     public HumanPlayer(Turn turn) {
+
         this.turn = turn;
     }
 
     @Override
-    public int makeMove() {
-        InputNumber inputNumber = new InputNumber();
+    public int makeMove(GameField gameField) {
+        UserMoveNumber inputNumber = new UserMoveNumber();
         int input;
         while (true) {
 
             input = inputNumber.getUserInput();
-            if ((input <= 0) || (input > GameField.COLUMNS + 1)) {
+            if ((input <= 0) || (input > gameField.getCOLUMNS() + 1)) {
                 System.out.println("The input number is incorrect. Try again!");
             } else {
                 System.out.println("The player H made his move.");

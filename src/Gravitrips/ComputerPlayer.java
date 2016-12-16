@@ -18,10 +18,10 @@ public class ComputerPlayer implements Player {
     }
 
     @Override
-    public int makeMove() {
+    public int makeMove(GameField gameField) {
         Random random = new Random();
-        int computerInput = random.nextInt(GameField.COLUMNS);
-        System.out.println("Computer made his move." + "\n");
+        int computerInput = random.nextInt(gameField.getCOLUMNS());
+        System.out.println("Computer made his move.");
         return computerInput;
     }
 
