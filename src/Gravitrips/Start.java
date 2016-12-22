@@ -1,7 +1,7 @@
 package Gravitrips;
 
 
-public class GameStart {
+public class Start {
 
     public static void main(String[] args) {
         Game game = new Game();

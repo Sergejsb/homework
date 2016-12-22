@@ -3,7 +3,7 @@ package Gravitrips;
 
 import java.util.Random;
 
-public class ComputerPlayer implements Player {
+public class ComputerPlayer extends Player {
     private Turn turn;
 
     public ComputerPlayer(Turn turn) {
@@ -18,7 +18,7 @@ public class ComputerPlayer implements Player {
     }
 
     @Override
-    public int makeMove(GameField gameField) {
+    public int makeMove(Field gameField) {
         Random random = new Random();
         int computerInput = random.nextInt(gameField.getCOLUMNS());
         System.out.println("Computer made his move.");

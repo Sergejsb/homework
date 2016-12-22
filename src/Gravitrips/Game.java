@@ -3,39 +3,34 @@ package Gravitrips;
 
 public class Game {
 
+    final int PLAYER_ONE = 1;
+    final int PLAYER_TWO = 2;
     private Player player1;
     private Player player2;
     private Player currentPlayer;
-    private GameField gameField = new GameField();
+    private Field field = new Field();
 
 
-    public void announceWinner() {
-
-        System.out.println("The " + currentPlayer + " has won!");
-    }
-
-    public Player nextPlayerTurn() {
-        if (currentPlayer == player1)
-            return player2;
-        if (currentPlayer == player2)
-            return player1;
-        return null;
+    public void switchPlayer() {
+        if (currentPlayer == player1) {
+            currentPlayer = player2;
+        } else {
+            currentPlayer = player1;
+        }
     }
 
     public void startGame() {
-        UserMoveNumber userMove = new UserMoveNumber();
-        VictoryCheck victoryCheck = new VictoryCheck();
         chooseOpponent();
-        gameField.fillFieldWithPoints();
+        field.fillFieldWithPoints();
         do {
-            gameField.showFilledField();
-            currentPlayer = nextPlayerTurn();
-            System.out.println("\n" + "It's " + currentPlayer + " turn!");
-            userMove.saveUserInput(currentPlayer, currentPlayer.makeMove(gameField), gameField);
-        } while (!victoryCheck.winner(currentPlayer, gameField));
-        if (victoryCheck.winner(currentPlayer, gameField)) {
-            gameField.showFilledField();
-            announceWinner();
+            field.showFilledField();
+            switchPlayer();
+            System.out.println("It's " + currentPlayer + " turn!");
+            field.put(currentPlayer, currentPlayer.makeMove(field));
+        } while (!field.winner(currentPlayer));
+        if (field.winner(currentPlayer)) {
+            field.showFilledField();
+            System.out.println("The " + currentPlayer + " has won!");
         } else {
             System.out.println("Nobody won! It's draw.");
         }
@@ -48,13 +43,13 @@ public class Game {
         while (condition) {
             System.out.println("Choose an opponent:\n" + "Enter 1 for human player\n" + "Enter 2 for computer player");
             result = userMove.getUserInput();
-            if (result == 1 || result == 2) {
+            if (result == PLAYER_ONE || result == PLAYER_TWO) {
                 condition = false;
             } else {
                 System.out.println("Wrong input. Can be 1 or 2");
             }
         }
-        if(result == 1) {
+        if (result == PLAYER_ONE) {
             player1 = new HumanPlayer(Turn.X);
             player2 = new HumanPlayer(Turn.O);
             currentPlayer = player2;

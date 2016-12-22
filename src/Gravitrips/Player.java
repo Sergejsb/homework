@@ -1,10 +1,10 @@
 package Gravitrips;
 
 
-public interface Player {
+public abstract class Player {
 
-    Turn getTurn();
+    abstract Turn getTurn();
 
-    int makeMove(GameField gameField);
+    abstract int makeMove(Field gameField);
 }
 

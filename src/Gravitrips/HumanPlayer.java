@@ -1,13 +1,12 @@
 package Gravitrips;
 
 
-public class HumanPlayer implements Player {
+public class HumanPlayer extends Player {
     private Turn turn;
 
 
     @Override
     public Turn getTurn() {
-
         return turn;
     }
 
@@ -17,16 +16,15 @@ public class HumanPlayer implements Player {
     }
 
     @Override
-    public int makeMove(GameField gameField) {
+    public int makeMove(Field gameField) {
         UserMoveNumber inputNumber = new UserMoveNumber();
         int input;
         while (true) {
-
             input = inputNumber.getUserInput();
             if ((input <= 0) || (input > gameField.getCOLUMNS() + 1)) {
                 System.out.println("The input number is incorrect. Try again!");
             } else {
-                System.out.println("The player H made his move.");
+                System.out.println("The player made his move.");
                 return input - 1;
             }
         }
